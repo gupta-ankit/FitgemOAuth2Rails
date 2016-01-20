@@ -1,12 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<script type="text/javascript">
+  var user_signed_in = <%= user_signed_in? || false %>;
+  var activitiy_request_url = "<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities', date: '2015-12-12') %>"
+</script>
 
-<% if current_user %>
-  Hello <%= current_user.email %> <br>
-  <div class="fitbit_data">
-    <%= session["devise.fitbit_data"] || "No session data available"%>
-  </div>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Signup",new_user_registration_path %>
-<% end %>
+<div class="header">
+  <% if user_signed_in? %>
+    Hello <%= current_user.email %> <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <hr>
+  <% else %>
+    <%= link_to "Signup",new_user_registration_path %>
+  <% end %>
+</div>
+
+<div class="main-wrapper">
+  <%= render partial: 'shared/api_output' if user_signed_in? %>
+</div>
