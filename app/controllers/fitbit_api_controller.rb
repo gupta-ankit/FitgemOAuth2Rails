@@ -4,7 +4,11 @@ class FitbitApiController < ApplicationController
 
   def data_request
     client = current_user.fitbit_client
-    output = client.activities_on_date('2015-12-12')
+    case params[:resource]
+    when "activities"; output = client.activities_on_date(params[:date])
+    when "sleep"; output = client.sleep_on_date(params[:date])
+    when "activities/steps"; output = client.steps_on_date(params[:date])
+    end
     render json: output
   end
 end

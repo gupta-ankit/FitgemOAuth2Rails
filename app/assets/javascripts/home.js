@@ -12,7 +12,7 @@ function init(){
   $('#api-request-btn').on('click', function(){
 
     $.ajax({
-      url: activitiy_request_url,
+      url: get_request_url(),
       dataType: 'json',
       success: function(data){
         editor.setValue(JSON.stringify(data, null, 2));
@@ -23,4 +23,8 @@ function init(){
     });
 
   });
+}
+
+function get_request_url(){
+  return $("select[name='request-url'] option:selected").val()
 }

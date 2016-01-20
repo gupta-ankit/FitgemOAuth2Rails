@@ -18,11 +18,17 @@ class User < ActiveRecord::Base
       end
       identity.user = user
     end
+
     identity.access_token = auth["credentials"]["token"]
     identity.refresh_token = auth["credentials"]["refresh_token"]
     identity.expires_at = auth["credentials"]["expires_at"]
+    identity.timezone = auth["info"]["timezone"]
     identity.save
     identity.user
+  end
+
+  def identity_for(provider)
+    identities.where(provider: provider).first
   end
 
   def fitbit_client

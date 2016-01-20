@@ -1,12 +1,10 @@
 <script type="text/javascript">
   var user_signed_in = <%= user_signed_in? || false %>;
-  var activitiy_request_url = "<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities', date: '2015-12-12') %>"
 </script>
 
 <div class="header">
   <% if user_signed_in? %>
-    Hello <%= current_user.email %> <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <hr>
+    Hello <%= current_user.email %> <%= link_to "Logout", destroy_user_session_path, method: :delete %> <hr>
   <% else %>
     <%= link_to "Signup",new_user_registration_path %>
   <% end %>
