@@ -1,0 +1,12 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% if current_user %>
+  Hello <%= current_user.email %> <br>
+  <div class="fitbit_data">
+    <%= session["devise.fitbit_data"] || "No session data available"%>
+  </div>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Signup",new_user_registration_path %>
+<% end %>
