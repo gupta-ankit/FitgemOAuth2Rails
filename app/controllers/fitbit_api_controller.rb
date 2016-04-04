@@ -8,6 +8,7 @@ class FitbitApiController < ApplicationController
     when "activities"; output = client.activities_on_date(params[:date])
     when "sleep"; output = client.sleep_on_date(params[:date])
     when "activities/steps"; output = client.steps_on_date(params[:date])
+    when "weight"; output = client.weight_on_date(params[:date])
     end
     render json: output
   end
