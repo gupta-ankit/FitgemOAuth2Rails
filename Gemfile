@@ -36,7 +36,7 @@ gem 'devise'
 
 gem 'omniauth-fitbit-oauth2'
 
-gem 'fitgem_oauth2', path: "../fitgem_oauth2"
+gem 'fitgem_oauth2', '~>1.0.0'
 
 gem 'figaro'
 

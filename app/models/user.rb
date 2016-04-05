@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
       identity.user = user
     end
 
-    identity.access_token = auth["credentials"]["token"]
-    identity.refresh_token = auth["credentials"]["refresh_token"]
-    identity.expires_at = auth["credentials"]["expires_at"]
-    identity.timezone = auth["info"]["timezone"]
+    identity.access_token = auth['credentials']['token']
+    identity.refresh_token = auth['credentials']['refresh_token']
+    identity.expires_at = auth['credentials']['expires_at']
+    identity.timezone = auth['info']['timezone']
     identity.save
     identity.user
   end

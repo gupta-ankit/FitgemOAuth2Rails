@@ -3,7 +3,7 @@
 <div class="form-and-output-wrapper">
   <div class="request-form">
     <select class="request-url-dropdown" name="request-url">
-      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities', date: today, only_path: false) %>" selected="true">Activities</option>
+      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'daily_activity_summary', date: today, only_path: false) %>" selected="true">Activities</option>
       <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'sleep', date: today, only_path: false) %>" >Sleep</option>
       <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities/steps', date: today, only_path: false) %>" >Steps</option>
       <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'weight', date: '2016-03-06', only_path: false) %>" >Weight</option>
