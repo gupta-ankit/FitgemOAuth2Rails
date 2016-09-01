@@ -39,6 +39,6 @@ rails s
 
 # IMPORTANT NOTE:
 
-For running this example on http://localhost:3000, make sure that you specify the correct callback url in your Fitbit application settings. It should be `http://localhost:3000/users/auth/fitbit_oauth2/callback`. Looks the image below to see where to specify the callback url
+For running this example on http://localhost:3000, make sure that you specify the correct callback url in your Fitbit application settings. It should be `http://localhost:3000/users/auth/fitbit/callback`. Looks the image below to see where to specify the callback url
 
 ![untitled](https://cloud.githubusercontent.com/assets/931331/14274522/b9cbcfe8-fac6-11e5-977f-34fcd650a720.png)

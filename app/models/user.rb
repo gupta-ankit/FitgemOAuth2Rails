@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:fitbit_oauth2]
+  devise :omniauthable, :omniauth_providers => [:fitbit]
 
   has_many :identities, :dependent => :destroy
 
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   def fitbit_client
 
-    fitbit_identity = identities.where(provider: 'fitbit_oauth2').first
+    fitbit_identity = identities.where(provider: 'fitbit').first
 
     FitgemOauth2::Client.new(
       token: fitbit_identity.access_token,

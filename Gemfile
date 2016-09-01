@@ -34,9 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
-gem 'omniauth-fitbit-oauth2'
+gem 'omniauth-fitbit', '~>2.0.0'
 
-gem 'fitgem_oauth2', '~>1.0.0'
+gem 'fitgem_oauth2', '~>1.0.5'
 
 gem 'figaro'
 
