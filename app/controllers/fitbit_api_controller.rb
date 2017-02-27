@@ -12,4 +12,19 @@ class FitbitApiController < ApplicationController
     end
     render json: output
   end
+
+  def get_call
+    client = current_user.fitbit_client
+    get_url = construct_get_url(params[:resource_uri], params[:get_params] || {})
+    puts get_url
+    render json: client.get_call( get_url )
+    # render json: client.activity_list('2017-01-01', 'asc', 10)
+  end
+
+  private
+  def construct_get_url(url, parameters)
+    param_str = parameters.map{|k,v| "#{k}=#{v}"}.join("&")
+    param_str = "?#{param_str}" if param_str != ""
+    "#{url}#{param_str}"
+  end
 end

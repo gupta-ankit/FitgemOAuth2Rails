@@ -36,9 +36,13 @@ gem 'devise'
 
 gem 'omniauth-fitbit', '~>2.0.0'
 
-gem 'fitgem_oauth2', '~>1.0.5'
+# gem 'fitgem_oauth2', '~>1.0.5'
+gem 'fitgem_oauth2', '~>1.0.5', path: "../fitgem_oauth2"
 
 gem 'figaro'
+
+gem "twitter-bootstrap-rails"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,18 +1,38 @@
 <% user_tmz = current_user.identity_for("fitbit").timezone %>
 <% today = Date.today.in_time_zone(user_tmz).to_date.strftime("%Y-%m-%d") %>
-<div class="form-and-output-wrapper">
-  <div class="request-form">
-    <select class="request-url-dropdown" name="request-url">
-      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'daily_activity_summary', date: today, only_path: false) %>" selected="true">Activities</option>
-      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'sleep', date: today, only_path: false) %>" >Sleep</option>
-      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities/steps', date: today, only_path: false) %>" >Steps</option>
-      <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'weight', date: '2016-03-06', only_path: false) %>" >Weight</option>
-    </select>
-    <button id="api-request-btn" type="button" name="button">Request</button>
+<div class="form-and-output-wrapper row">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#preset-queries" role="tab" data-toggle="tab">Preset</a></li>
+    <li role="presentation"><a href="#get-query-builder" role="tab" data-toggle="tab">Custom Get Requests</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tab-panel" class="tab-pane active" id="preset-queries">
+      <div class="request-form">
+        <select class="request-url-dropdown" name="request-url">
+          <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'daily_activity_summary', date: today, only_path: false) %>" selected="true">Activities</option>
+          <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'sleep', date: today, only_path: false) %>" >Sleep</option>
+          <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'activities/steps', date: today, only_path: false) %>" >Steps</option>
+          <option value="<%= url_for(controller: 'fitbit_api', action: 'data_request', resource: 'weight', date: '2016-03-06', only_path: false) %>" >Weight</option>
+        </select>
+        <button id="api-request-btn" type="button" name="button">Request</button>
+      </div>
+    </div>
+
+    <div role="tab-panel" class="tab-pane" id="get-query-builder">
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" name="resource_uri" value="user/-/activities/list.json">
+          <div id="kveditor">
+
+          </div>
+          <button id="get-call">Submit</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="output-wrapper">
     <textarea id="api_output" name="name" rows="80" cols="40"></textarea>
   </div>
-
 </div>

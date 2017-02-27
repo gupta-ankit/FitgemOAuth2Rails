@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'fitbit/:resource/:date.json' => 'fitbit_api#data_request'
+  get 'fitbit_api/get_call' => 'fitbit_api#get_call'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
