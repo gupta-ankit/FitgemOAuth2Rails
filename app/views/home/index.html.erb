@@ -6,7 +6,8 @@
   <% if user_signed_in? %>
     Hello <%= current_user.email %> <%= link_to "Logout", destroy_user_session_path, method: :delete %> <hr>
   <% else %>
-    <%= link_to "Sign in with Fitbit", "http://localhost:3000/users/auth/fitbit" %>
+    <%# link_to "Sign in with Fitbit", "http://localhost:3000/users/auth/fitbit" %>
+    <%= link_to "Sign in with Fitbit", user_omniauth_authorize_path(provider: 'fitbit') %>
   <% end %>
 </div>
 
