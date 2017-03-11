@@ -8,12 +8,13 @@ class SubscriptionsController < ApplicationController
     if request.post?
       # in future add security feature to prevent hackers from posting fake requests
       # https://dev.fitbit.com/docs/subscriptions/#security
-      puts "----------------"
-      puts params['_json']
-      puts "----------------"
+      updates = params['_json']
+      for update in updates
+        process_update(update)
+      end
       render nothing: true, status: 204
     else
-      if params[:verify] == "55343233d71220a26972e6b5ac2e029998b52791649a3cb52c608685e2249ad6"
+      if params[:verify] == ENV['FITBIT_SUBSCRIPTION_VERIFICATION_CODE']
         render :nothing => true, :status => 204
       else
         render :nothing => true, :status => 404
@@ -38,6 +39,9 @@ class SubscriptionsController < ApplicationController
   private
   def process_update(opts)
     # {"collectionType"=>"activities", "date"=>"2017-03-11", "ownerId"=>"39TFNX", "ownerType"=>"user", "subscriptionId"=>"001"}
+    puts "========================"
+    puts opts
+    puts opts.class
     collection_type = opts["collectionType"]
     date = opts["date"]
     uid = opts["ownerId"]
@@ -69,7 +73,7 @@ class SubscriptionsController < ApplicationController
     if idty && collection_type == 'body'
       user = idty.user
       weight_fd = FitbitDatum.where(user_id: user.id, date: date, resource_type: 'weight').first
-      new_weight_data = client.weight_logs(start_date: date)
+      new_weight_data = user.fitbit_client.weight_logs(start_date: date)
       if weight_fd
         weight_fd.content = new_weight_data.to_json
         weight_fd.save
