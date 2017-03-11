@@ -41,6 +41,7 @@ gem 'figaro'
 
 gem "twitter-bootstrap-rails"
 
+gem 'rails_12factor'
 
 group :production do
   gem 'pg'
