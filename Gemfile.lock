@@ -51,6 +51,7 @@ GEM
     coffee-script-source (1.10.0)
     commonjs (0.2.7)
     concurrent-ruby (1.0.1)
+    connection_pool (2.2.1)
     debug_inspector (0.0.2)
     devise (3.5.6)
       bcrypt (~> 3.0)
@@ -119,6 +120,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.20.0)
     rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.2)
@@ -153,6 +156,7 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    redis (3.3.3)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -165,6 +169,11 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sidekiq (4.2.9)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -211,8 +220,10 @@ DEPENDENCIES
   pg
   rails (= 4.2.2)
   rails_12factor
+  redis
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sidekiq
   spring
   sqlite3
   turbolinks

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120220316) do
+ActiveRecord::Schema.define(version: 20170311185349) do
+
+  create_table "fitbit_data", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.string   "date"
+    t.string   "resource_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "fitbit_data", ["date", "resource_type"], name: "index_fitbit_data_on_date_and_resource_type"
+  add_index "fitbit_data", ["user_id"], name: "index_fitbit_data_on_user_id"
 
   create_table "identities", force: :cascade do |t|
     t.string   "uid"

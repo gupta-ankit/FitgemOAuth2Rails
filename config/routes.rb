@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'subscriptions/index'
+  post 'subscriptions/index'
+  get 'subscriptions/add'
+  get 'subscriptions/list'
 
   get 'home/index'
 

@@ -41,7 +41,13 @@ gem 'figaro'
 
 gem "twitter-bootstrap-rails"
 
+# required for heroku
 gem 'rails_12factor'
+
+# sidekiq to handle subscription update notifications from Fitbit
+gem 'sidekiq'
+
+gem 'redis'
 
 group :production do
   gem 'pg'
