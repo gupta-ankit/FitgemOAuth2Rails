@@ -24,3 +24,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  database: fitgem
+  username: fitgem
+  password: password
