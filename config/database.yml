@@ -24,6 +24,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: fitgem
-  username: fitgem
-  password: password
+  database: ruby-getting-started_production
+  username: ruby-getting-started
+  password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
