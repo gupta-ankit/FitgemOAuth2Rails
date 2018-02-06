@@ -228,7 +228,7 @@ DEPENDENCIES
   fitgem_oauth2 (~> 1.0.6)
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth-fitbit
+  omniauth-fitbit (~> 2.0.0)
   pg
   rails (= 4.2.7.1)
   rails_12factor
