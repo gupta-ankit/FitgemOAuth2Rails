@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
-gem 'omniauth-fitbit', '~>2.0.0'
+gem 'omniauth-fitbit'
 
 gem 'fitgem_oauth2', '~>1.0.6'
 # gem 'fitgem_oauth2', '~>1.0.5', path: "../fitgem_oauth2"
